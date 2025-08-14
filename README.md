@@ -1,29 +1,38 @@
-# thingsboard-windows11-docker-setup
-Step-by-step guide to installing and running ThingsBoard CE on Windows 11 using Docker Desktop. Includes docker-compose.yml configuration, login credentials, and troubleshooting tips.
 # ThingsBoard Windows 11 Docker Setup
 
-This repository contains a complete step-by-step guide to installing and running **ThingsBoard Community Edition** on **Windows 11** using **Docker Desktop**.
+This repository contains a complete step-by-step guide to installing and running **ThingsBoard Community Edition (IoT Platform)** on **Windows 11** using **Docker Desktop**.  
+Supports MQTT, CoAP, and HTTP protocols for IoT device data collection.
 
 ## 📌 Features
 - Full Docker Desktop installation instructions
-- `docker-compose.yml` ready to use
+- Ready-to-use `docker-compose.yml` file
 - Default login credentials
-- Works on Windows 11 with Docker Compose V2
+- Compatible with Docker Compose V2
+- Supports MQTT, CoAP, and HTTP protocols
+
+---
 
 ## 🛠 Installation Steps
 
-### 1. Install Docker Desktop
-1. Download: [Docker Desktop](https://www.docker.com/products/docker-desktop)
-2. Install like any other Windows app.
-3. Open Docker Desktop → **Settings** → **General** → enable *Use Docker Compose V2*.
-4. Keep Docker Desktop running.
+### **1. Install Docker Desktop**
+1. Download: [Docker Desktop](https://www.docker.com/products/docker-desktop)  
+2. Install like any other Windows app.  
+3. Open Docker Desktop → **Settings** → **General** → enable *Use Docker Compose V2*.  
+4. Keep Docker Desktop running.  
 
-### 2. Create Project Folder
+---
+
+### **2. Create Project Folder**
 ```bash
 mkdir thingsboard
 cd thingsboard
+````
 
-### 3 . Create docker-compose.yml
+---
+
+### **3. Create `docker-compose.yml`**
+
+```yaml
 version: '3.3'
 services:
   tb:
@@ -42,24 +51,40 @@ services:
 volumes:
   tb-data:
   tb-logs:
+```
 
-### 4. Start ThingsBoard
+---
+
+### **4. Start ThingsBoard**
+
+```bash
 docker compose up -d
 docker logs -f thingsboard-tb-1
+```
+
+Look for:
+
+```
 ThingsBoard is up and running
+```
+
+---
+
+### **5. Access Web Interface**
+
+* Open: [http://localhost:8080](http://localhost:8080)
+* **Username:** `tenant@thingsboard.org`
+* **Password:** `tenant`
 
 
-5. Access Web Interface
+---
 
-Open http://localhost:8080
+## 📜 License
 
-Username: tenant@thingsboard.org
+This project is open-source and available under the [MIT License](LICENSE).
 
-Password: tenant
+---
 
+⭐ **If you find this helpful, please star the repo to support the project!**
 
-
-If you want, I can also make a **SEO-optimized README** with keywords like “IoT platform installation,” “Docker ThingsBoard tutorial,” and “Windows 11 IoT setup” so your repo ranks higher in GitHub and Google searches. That would push more traffic to your GitHub.  
-
-Do you want me to create that optimized README for you?
-
+```
